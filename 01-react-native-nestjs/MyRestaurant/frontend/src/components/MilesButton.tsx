@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import { colors } from '../constants';
 import { MEDIA_HEIGHT } from '../constants/media';
-import getDeviceDimensions from '../utils/getDeviceDimensions';
+import { getDeviceDimensions } from '../utils';
 
 const { deviceHeight } = getDeviceDimensions();
 
