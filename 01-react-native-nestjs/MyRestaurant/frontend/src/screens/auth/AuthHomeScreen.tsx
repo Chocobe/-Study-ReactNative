@@ -4,11 +4,11 @@ import {
 import {
     SafeAreaView,
     View,
-    Button,
 } from 'react-native';
 import { AuthStackParamList } from '../../navigations/stack/AuthStackNavigator';
 import { StackScreenProps } from '@react-navigation/stack';
 import { authNavigations } from '../../constants';
+import MilesButton from '../../components/MilesButton';
 
 type AuthHomeScreenParams = StackScreenProps<
     AuthStackParamList,
@@ -27,11 +27,13 @@ function AuthHomeScreen({ navigation }: AuthHomeScreenParams) {
     return (
         <SafeAreaView>
             <View>
-                <Button
-                    title="로그인 화면으로 이동~"
+                <MilesButton
+                    label="로그인 하기"
                     onPress={goToLogin} />
-                <Button
-                    title="회원가입"
+                <MilesButton
+                    size="large"
+                    label="회원가입 하기"
+                    variant="outlined"
                     onPress={goToSignup} />
             </View>
         </SafeAreaView>
