@@ -6,13 +6,18 @@ import {
     View,
     Button,
 } from 'react-native';
-import {
+import { AuthStackParamList } from '../navigations/stack/AuthStackNavigator';
+import { StackScreenProps } from '@react-navigation/stack';
+import { authNavigations } from '../constants';
 
-} from '@react-navigation/native';
+type AuthHomeScreenParams = StackScreenProps<
+    AuthStackParamList,
+    typeof authNavigations.AUTH_HOME
+>;
 
-function AuthHomeScreen({ navigation }: any) {
+function AuthHomeScreen({ navigation }: AuthHomeScreenParams) {
     const onPress = useCallback(() => {
-        navigation.navigate('Login');
+        navigation.navigate(authNavigations.LOGIN);
     }, [navigation]);
 
     return (
