@@ -7,12 +7,12 @@ import {
     Text,
     StyleSheet,
     PressableProps,
-    Dimensions,
 } from 'react-native';
 import { colors } from '../constants';
+import { MEDIA_HEIGHT } from '../constants/media';
+import getDeviceDimensions from '../utils/getDeviceDimensions';
 
-const MEDIA_HEIGHT = 700;
-const deviceHeight = Dimensions.get('screen').height;
+const { deviceHeight } = getDeviceDimensions();
 
 interface MilesButtonProps extends PressableProps {
     label: string;
