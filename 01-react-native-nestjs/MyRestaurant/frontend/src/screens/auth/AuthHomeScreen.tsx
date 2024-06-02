@@ -6,9 +6,9 @@ import {
     View,
     Button,
 } from 'react-native';
-import { AuthStackParamList } from '../navigations/stack/AuthStackNavigator';
+import { AuthStackParamList } from '../../navigations/stack/AuthStackNavigator';
 import { StackScreenProps } from '@react-navigation/stack';
-import { authNavigations } from '../constants';
+import { authNavigations } from '../../constants';
 
 type AuthHomeScreenParams = StackScreenProps<
     AuthStackParamList,
@@ -16,8 +16,12 @@ type AuthHomeScreenParams = StackScreenProps<
 >;
 
 function AuthHomeScreen({ navigation }: AuthHomeScreenParams) {
-    const onPress = useCallback(() => {
+    const goToLogin = useCallback(() => {
         navigation.navigate(authNavigations.LOGIN);
+    }, [navigation]);
+
+    const goToSignup = useCallback(() => {
+        navigation.navigate(authNavigations.SIGNUP);
     }, [navigation]);
 
     return (
@@ -25,7 +29,10 @@ function AuthHomeScreen({ navigation }: AuthHomeScreenParams) {
             <View>
                 <Button
                     title="로그인 화면으로 이동~"
-                    onPress={onPress} />
+                    onPress={goToLogin} />
+                <Button
+                    title="회원가입"
+                    onPress={goToSignup} />
             </View>
         </SafeAreaView>
     );
