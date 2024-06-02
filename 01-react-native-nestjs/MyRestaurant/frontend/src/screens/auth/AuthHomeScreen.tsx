@@ -4,6 +4,9 @@ import {
 import {
     SafeAreaView,
     View,
+    Image,
+    StyleSheet,
+    Dimensions,
 } from 'react-native';
 import { AuthStackParamList } from '../../navigations/stack/AuthStackNavigator';
 import { StackScreenProps } from '@react-navigation/stack';
@@ -25,8 +28,15 @@ function AuthHomeScreen({ navigation }: AuthHomeScreenParams) {
     }, [navigation]);
 
     return (
-        <SafeAreaView>
-            <View>
+        <SafeAreaView style={styles.container}>
+            <View 
+                style={styles.imageContainer}>
+                <Image 
+                    resizeMode="contain"
+                    source={require('../../assets/my-restaurant-logo.png')}
+                    style={styles.image} />
+            </View>
+            <View style={styles.buttonContainer}>
                 <MilesButton
                     label="로그인 하기"
                     onPress={goToLogin} />
@@ -39,5 +49,27 @@ function AuthHomeScreen({ navigation }: AuthHomeScreenParams) {
         </SafeAreaView>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        margin: 30,
+        alignItems: 'center',
+    },
+
+    imageContainer: {
+        flex: 1.5,
+        width: Dimensions.get('screen').width / 4 * 3,
+    },
+    image: {
+        width: '100%',
+        height: '100%',
+    },
+
+    buttonContainer: {
+        flex: 1,
+        gap: 10,
+    },
+});
 
 export default AuthHomeScreen;

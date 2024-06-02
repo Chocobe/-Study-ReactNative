@@ -3,6 +3,7 @@ import {
 } from 'react';
 import { 
     Pressable,
+    View,
     Text,
     StyleSheet,
     PressableProps,
@@ -36,16 +37,17 @@ function MilesButton({
         <Pressable
             style={({ pressed }) => [
                 styles.container,
-                styles[size],
                 invalid && styles.invalid,
                 pressed ? styles[`${variant}Pressed`] : styles[variant],
             ]}
             disabled={invalid}
             {...props}>
-            <Text
-                style={labelStyle}>
-                {label}
-            </Text>
+            <View style={styles[size]}>
+                <Text
+                    style={labelStyle}>
+                    {label}
+                </Text>
+            </View>
         </Pressable>
     );
 }
@@ -55,6 +57,7 @@ const styles = StyleSheet.create({
     container: {
         borderRadius: 3,
         justifyContent: 'center',
+        flexDirection: 'row',
     },
     filled: {
         backgroundColor: colors.PINK_700,
@@ -74,12 +77,14 @@ const styles = StyleSheet.create({
     large: {
         width: '100%',
         paddingVertical: deviceHeight > MEDIA_HEIGHT ? 15 : 10,
+        flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
     },
     medium: {
         width: '50%',
         paddingVertical: deviceHeight > MEDIA_HEIGHT ? 12 : 8,
+        flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
     },
