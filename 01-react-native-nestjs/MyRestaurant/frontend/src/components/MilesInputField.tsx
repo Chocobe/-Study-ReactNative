@@ -1,4 +1,6 @@
 import {
+    forwardRef,
+    ForwardedRef,
     useRef,
     useCallback,
     memo,
@@ -13,7 +15,7 @@ import {
 } from 'react-native';
 import { colors } from '../constants';
 import { MEDIA_HEIGHT } from '../constants/media';
-import { getDeviceDimensions } from '../utils';
+import { getDeviceDimensions, mergeRefs } from '../utils';
 
 const { deviceHeight } = getDeviceDimensions();
 
@@ -23,12 +25,12 @@ interface MilesInputFieldProps extends TextInputProps {
     error?: string;
 };
 
-function MilesInputField({
+const MilesInputField = forwardRef(({
     disabled = false,
     touched = false,
     error,
     ...props
-}: MilesInputFieldProps) {
+}: MilesInputFieldProps, ref?: ForwardedRef<TextInput>) => {
     const $inputRef = useRef<TextInput | null>(null);
 
     const onPress = useCallback(() => {
@@ -44,7 +46,7 @@ function MilesInputField({
                     !!error && touched && styles.error,
                 ]}>
                 <TextInput 
-                    ref={$inputRef}
+                    ref={ref ? mergeRefs(ref, $inputRef) : $inputRef}
                     style={[
                         styles.input,
                         disabled && styles.disabled,
@@ -63,7 +65,7 @@ function MilesInputField({
             </View>
         </Pressable>
     );
-}
+});
 
 const styles = StyleSheet.create({
     // container

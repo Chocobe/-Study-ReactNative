@@ -2,8 +2,10 @@ import {
     SafeAreaView,
     View,
     StyleSheet,
+    TextInput,
 } from 'react-native';
 import {
+    useRef,
     useCallback,
 } from 'react';
 import { StackScreenProps } from '@react-navigation/stack';
@@ -20,6 +22,8 @@ type LoginScreenProps = StackScreenProps<
 >;
 
 function LoginScreen(_props: LoginScreenProps) {
+    const passwordRef = useRef<TextInput | null>(null);
+
     const loginForm = useForm({
         initialValue: {
             email: '',
@@ -40,19 +44,29 @@ function LoginScreen(_props: LoginScreenProps) {
                 <MilesInputField
                     placeholder="이메일"
                     inputMode="email"
+                    autoFocus
                     // value={values.email}
                     // onChangeText={text => handleChangeText('email', text)}
                     // touched={touched.email}
                     // onBlur={() => handleBlur('email')}
                     // error="이메일을 입력해주세요." 
+                    blurOnSubmit={false}
+                    returnKeyType="next"
+                    onSubmitEditing={() => {
+                        passwordRef.current?.focus();
+                    }}
                     {...loginForm.getTextInputProps('email')} />
                 <MilesInputField
+                    ref={passwordRef}
                     placeholder="비밀번호"
                     // value={values.password}
                     // onChangeText={text => handleChangeText('password', text)}
                     // touched={touched.password}
                     // onBlur={() => handleBlur('password')}
                     // error="비밀번호를 입력해주세요."
+                    textContentType="oneTimeCode"
+                    returnKeyType="join"
+                    onSubmitEditing={handleSubmit}
                     {...loginForm.getTextInputProps('password')}
                     secureTextEntry />
             </View>
