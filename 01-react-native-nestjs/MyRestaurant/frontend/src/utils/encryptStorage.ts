@@ -10,7 +10,7 @@ export const getEncryptStorage = async (key: string) => {
     return storeData ? JSON.parse(storeData) : null;
 };
 
-export const removweEncryptItem = async (key: string) => {
+export const removeEncryptStorage = async (key: string) => {
     const storeData = await getEncryptStorage(key);
 
     if (storeData) {

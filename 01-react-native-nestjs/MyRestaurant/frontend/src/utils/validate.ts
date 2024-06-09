@@ -20,8 +20,8 @@ export const validateUser = (values: UserInformation) => {
         errors.email = '올바른 이메일 형식이 아닙니다.';
     }
 
-    if (password.length < 4 || password.length > 8) {
-        errors.password = '비밀번호는 4 ~ 8 자 사이로 입력해주세요.';
+    if (password.length <= 8 || password.length >= 20) {
+        errors.password = '비밀번호는 8 ~ 20 자 사이로 입력해주세요.';
     }
 
     return errors;

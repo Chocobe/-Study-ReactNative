@@ -28,7 +28,7 @@ const postLogin = async ({
     email,
     password,
 }: RequestUser) => {
-    const { data } = await axiosInstance.post<ResponseToken>('/auth/login', {
+    const { data } = await axiosInstance.post<ResponseToken>('/auth/signin', {
         email,
         password,
     });
@@ -45,7 +45,7 @@ const getProfile = async () => {
 };
 
 const getAccessToken = async () => {
-    const refreshToken = getEncryptStorage('refreshToken');
+    const refreshToken = await getEncryptStorage('refreshToken');
 
     const { data } = await axiosInstance.get<ResponseToken>('/auth/refresh', {
         headers: {

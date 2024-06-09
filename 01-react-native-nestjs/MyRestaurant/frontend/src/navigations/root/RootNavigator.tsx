@@ -1,15 +1,18 @@
 import MainDrawerNavigator from '../drawer/MainDrawerNavigator';
 import AuthStackNavigator from '../stack/AuthStackNavigator';
+import useAuth from '../../hooks/queries/useAuth';
+import { useEffect } from 'react';
 
 function RootNavigator() {
-    const isLoggedIn = false;
+    const { isLogin } = useAuth();
 
-    return isLoggedIn
-        ? (
-            <MainDrawerNavigator />
-        ): (
-            <AuthStackNavigator />
-        );
+    useEffect(() => {
+        console.log('isLogin 바뀜: ', isLogin);
+    }, [isLogin]);
+
+    return isLogin
+        ? <MainDrawerNavigator />
+        : <AuthStackNavigator />;
 }
 
 export default RootNavigator;

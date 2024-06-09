@@ -15,6 +15,7 @@ import MilesInputField from '../../components/MilesInputField';
 import MilesButton from '../../components/MilesButton';
 import useForm from '../../hooks/useForm';
 import { validateSignup } from '../../utils';
+import useAuth from '../../hooks/queries/useAuth';
 
 type SignupScreenProps = DrawerScreenProps<
     AuthStackParamList,
@@ -34,11 +35,32 @@ function SignupScreen(_props: SignupScreenProps) {
         validate: validateSignup,
     });
 
+    const { 
+        signupMutation,
+        loginMutation,
+    } = useAuth();
+
     const handleSubmit = useCallback(() => {
-        console.group('handleSubmit()');
-        console.log('signForm.values: ', signupForm.values);
-        console.groupEnd();
-    }, [signupForm.values]);
+        const {
+            email,
+            password,
+        } = signupForm.values;
+
+        signupMutation.mutate({
+            email,
+            password,
+        }, {
+            onSuccess: () => {
+                loginMutation.mutate({
+                    email,
+                    password,
+                });
+            },
+        });
+    }, [
+        signupForm.values, 
+        signupMutation, loginMutation,
+    ]);
 
     return (
         <SafeAreaView style={styles.container}>

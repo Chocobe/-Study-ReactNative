@@ -15,6 +15,7 @@ import MilesInputField from '../../components/MilesInputField';
 import MilesButton from '../../components/MilesButton';
 import useForm from '../../hooks/useForm';
 import { validateLogin } from '../../utils';
+import useAuth from '../../hooks/queries/useAuth';
 
 type LoginScreenProps = StackScreenProps<
     AuthStackParamList,
@@ -32,11 +33,11 @@ function LoginScreen(_props: LoginScreenProps) {
         validate: validateLogin,
     });
 
+    const { loginMutation } = useAuth();
+
     const handleSubmit = useCallback(() => {
-        console.group('handleSubmit()');
-        console.log('loginForm.values: ', loginForm.values);
-        console.groupEnd();
-    }, [loginForm.values]);
+        loginMutation.mutate(loginForm.values);
+    }, [loginForm.values, loginMutation]);
 
     return (
         <SafeAreaView style={styles.container}>
