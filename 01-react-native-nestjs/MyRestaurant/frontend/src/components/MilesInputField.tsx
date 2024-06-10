@@ -13,9 +13,9 @@ import {
     Text,
     StyleSheet,
 } from 'react-native';
-import { colors } from '../constants';
-import { MEDIA_HEIGHT } from '../constants/media';
-import { getDeviceDimensions, mergeRefs } from '../utils';
+import { colors } from '@/constants';
+import { MEDIA_HEIGHT } from '@/constants/media';
+import { getDeviceDimensions, mergeRefs } from '@/utils';
 
 const { deviceHeight } = getDeviceDimensions();
 

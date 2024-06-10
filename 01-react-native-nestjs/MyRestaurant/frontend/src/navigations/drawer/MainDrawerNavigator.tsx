@@ -1,10 +1,10 @@
 import { 
     createDrawerNavigator,
 } from '@react-navigation/drawer';
-import { mainNavigations } from '../../constants';
-import MapHomeScreen from '../../screens/map/MapHomeScreen';
-import FeedHomeScreen from '../../screens/feed/FeedHomeScreen';
-import CalendarHomeScreen from '../../screens/calendar/CalendarHomeScreen';
+import { mainNavigations } from '@/constants';
+import MapHomeScreen from '@/screens/map/MapHomeScreen';
+import FeedHomeScreen from '@/screens/feed/FeedHomeScreen';
+import CalendarHomeScreen from '@/screens/calendar/CalendarHomeScreen';
 
 export type MainDrawerParamList = {
     [mainNavigations.MAP_HOME]: undefined,

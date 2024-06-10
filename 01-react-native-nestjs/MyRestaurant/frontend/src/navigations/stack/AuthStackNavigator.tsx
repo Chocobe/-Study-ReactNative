@@ -3,11 +3,11 @@ import {
     createStackNavigator,
 } from '@react-navigation/stack';
 // constants
-import { authNavigations } from '../../constants';
+import { authNavigations } from '@/constants';
 // screen
-import AuthHomeScreen from '../../screens/auth/AuthHomeScreen';
-import LoginScreen from '../../screens/auth/LoginScreen';
-import SignupScreen from '../../screens/auth/SignupScreen';
+import AuthHomeScreen from '@/screens/auth/AuthHomeScreen';
+import LoginScreen from '@/screens/auth/LoginScreen';
+import SignupScreen from '@/screens/auth/SignupScreen';
 
 export type AuthStackParamList = {
     [authNavigations.AUTH_HOME]: undefined;

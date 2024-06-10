@@ -3,10 +3,10 @@ import {
     Text,
     Button,
 } from 'react-native';
-import { MainDrawerParamList } from '../../navigations/drawer/MainDrawerNavigator';
-import { mainNavigations } from '../../constants';
+import { MainDrawerParamList } from '@/navigations/drawer/MainDrawerNavigator';
+import { mainNavigations } from '@/constants';
 import { DrawerScreenProps } from '@react-navigation/drawer';
-import useAuth from '../../hooks/queries/useAuth';
+import useAuth from '@/hooks/queries/useAuth';
 
 type MapHomeScreenProps = DrawerScreenProps<
     MainDrawerParamList,

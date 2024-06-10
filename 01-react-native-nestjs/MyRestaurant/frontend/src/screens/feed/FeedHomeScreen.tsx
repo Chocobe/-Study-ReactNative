@@ -3,8 +3,8 @@ import {
     View,
     Text,
 } from 'react-native';
-import { MainDrawerParamList } from '../../navigations/drawer/MainDrawerNavigator';
-import { mainNavigations } from '../../constants';
+import { MainDrawerParamList } from '@/navigations/drawer/MainDrawerNavigator';
+import { mainNavigations } from '@/constants';
 import { DrawerScreenProps } from '@react-navigation/drawer';
 
 type FeedHomeScreenProps = DrawerScreenProps<

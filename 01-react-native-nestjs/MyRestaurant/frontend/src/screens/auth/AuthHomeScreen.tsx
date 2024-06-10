@@ -8,10 +8,10 @@ import {
     StyleSheet,
     Dimensions,
 } from 'react-native';
-import { AuthStackParamList } from '../../navigations/stack/AuthStackNavigator';
+import { AuthStackParamList } from '@/navigations/stack/AuthStackNavigator';
 import { StackScreenProps } from '@react-navigation/stack';
-import { authNavigations } from '../../constants';
-import MilesButton from '../../components/MilesButton';
+import { authNavigations } from '@/constants';
+import MilesButton from '@/components/MilesButton';
 
 type AuthHomeScreenParams = StackScreenProps<
     AuthStackParamList,

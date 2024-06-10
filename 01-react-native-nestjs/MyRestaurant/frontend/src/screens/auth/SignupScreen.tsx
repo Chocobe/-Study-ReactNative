@@ -9,13 +9,13 @@ import {
     useRef,
 } from 'react';
 import { DrawerScreenProps } from '@react-navigation/drawer';
-import { authNavigations } from '../../constants';
-import { AuthStackParamList } from '../../navigations/stack/AuthStackNavigator';
-import MilesInputField from '../../components/MilesInputField';
-import MilesButton from '../../components/MilesButton';
-import useForm from '../../hooks/useForm';
-import { validateSignup } from '../../utils';
-import useAuth from '../../hooks/queries/useAuth';
+import { authNavigations } from '@/constants';
+import { AuthStackParamList } from '@/navigations/stack/AuthStackNavigator';
+import MilesInputField from '@/components/MilesInputField';
+import MilesButton from '@/components/MilesButton';
+import useForm from '@/hooks/useForm';
+import { validateSignup } from '@/utils';
+import useAuth from '@/hooks/queries/useAuth';
 
 type SignupScreenProps = DrawerScreenProps<
     AuthStackParamList,

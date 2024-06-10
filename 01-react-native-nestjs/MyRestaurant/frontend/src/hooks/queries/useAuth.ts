@@ -6,29 +6,29 @@ import { useEffect } from 'react';
 import { 
     UseMutationCustomOptions,
     UseQueryCustomOptions,
-} from '../../types/common';
+} from '@/types/common';
 import { 
     removeEncryptStorage, 
     setEncryptStorage,
-} from '../../utils';
+} from '@/utils';
 import { 
     removeHeader, 
     setHeader,
-} from '../../utils/headers';
+} from '@/utils/headers';
 import { 
     getAccessToken, 
     getProfile, 
     logout, 
     postLogin, 
     postSignup,
-} from '../../api/auth';
-import queryClient from '../../api/queryClient';
+} from '@/api/auth';
+import queryClient from '@/api/queryClient';
 import { 
     queryKey,
     storageKey,
     requestHeaderKey,
     numbers,
-} from '../../constants';
+} from '@/constants';
 
 const useSignup = (mutationOptions?: UseMutationCustomOptions) => {
     return useMutation({

@@ -9,13 +9,13 @@ import {
     useCallback,
 } from 'react';
 import { StackScreenProps } from '@react-navigation/stack';
-import { AuthStackParamList } from '../../navigations/stack/AuthStackNavigator';
-import { authNavigations } from '../../constants';
-import MilesInputField from '../../components/MilesInputField';
-import MilesButton from '../../components/MilesButton';
-import useForm from '../../hooks/useForm';
-import { validateLogin } from '../../utils';
-import useAuth from '../../hooks/queries/useAuth';
+import { AuthStackParamList } from '@/navigations/stack/AuthStackNavigator';
+import { authNavigations } from '@/constants';
+import MilesInputField from '@/components/MilesInputField';
+import MilesButton from '@/components/MilesButton';
+import useForm from '@/hooks/useForm';
+import { validateLogin } from '@/utils';
+import useAuth from '@/hooks/queries/useAuth';
 
 type LoginScreenProps = StackScreenProps<
     AuthStackParamList,
