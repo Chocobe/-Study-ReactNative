@@ -5,7 +5,11 @@ export const authNavigations = {
 } as const;
 
 export const mainNavigations = {
+    HOME: 'Home',
+    FEED: 'Feed',
+    CALENDAR: 'Calendar',
+} as const;
+
+export const mapNavigations = {
     MAP_HOME: 'MapHome',
-    FEED_HOME: 'FeedHome',
-    CALENDAR_HOME: 'CalendarHome',
 } as const;

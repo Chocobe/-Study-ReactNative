@@ -9,7 +9,7 @@ import { DrawerScreenProps } from '@react-navigation/drawer';
 
 type FeedHomeScreenProps = DrawerScreenProps<
     MainDrawerParamList,
-    typeof mainNavigations.FEED_HOME
+    typeof mainNavigations.FEED
 >;
 
 function FeedHomeScreen(_props: FeedHomeScreenProps) {

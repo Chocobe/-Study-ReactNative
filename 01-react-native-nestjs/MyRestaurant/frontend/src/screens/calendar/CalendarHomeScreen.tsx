@@ -9,7 +9,7 @@ import { mainNavigations } from '@/constants';
 
 type CalendarHomeScreenProps = DrawerScreenProps<
     MainDrawerParamList,
-    typeof mainNavigations.CALENDAR_HOME
+    typeof mainNavigations.CALENDAR
 >;
 
 function CalendarHomeScreen(_props: CalendarHomeScreenProps) {
