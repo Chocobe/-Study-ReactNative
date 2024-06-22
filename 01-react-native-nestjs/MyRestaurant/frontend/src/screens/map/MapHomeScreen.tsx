@@ -17,6 +17,7 @@ import {
 import MapView, {
     PROVIDER_GOOGLE,
 } from 'react-native-maps';
+import mapStyle from '@/style/mapStyle';
 import { 
     useSafeAreaInsets,
 } from 'react-native-safe-area-context';
@@ -121,6 +122,7 @@ function MapHomeScreen() {
             ref={$mapViewRef}
             provider={PROVIDER_GOOGLE}
             style={styles.container}
+            customMapStyle={mapStyle}
             // 사용자 위치를 Map에 보여주는 설정 (사용자 위치 정보 접근 권한 필요)
             showsUserLocation
             // Map 이 사용자의 위치를 포커스 한다. (showsUserLocation 이 `true` 설정 필요)
