@@ -6,6 +6,7 @@ import Geolocation from '@react-native-community/geolocation';
 import {
     LatLng,
 } from 'react-native-maps';
+import useAppState from './useAppState';
 
 const useUserLocation = () => {
     const [userLocation, setUserLocation] = useState<LatLng>({
@@ -15,7 +16,11 @@ const useUserLocation = () => {
 
     const [isUserLocationError, setIsUserLocationError] = useState(false);
 
-    useEffect(function initUserLocation() {
+    const { 
+        isComeback,
+    } = useAppState();
+
+    useEffect(() => {
         Geolocation.getCurrentPosition(info => {
             const {
                 latitude,
@@ -32,7 +37,7 @@ const useUserLocation = () => {
         }, {
             enableHighAccuracy: true,
         });
-    }, []);
+    }, [isComeback]);
 
     return {
         userLocation,

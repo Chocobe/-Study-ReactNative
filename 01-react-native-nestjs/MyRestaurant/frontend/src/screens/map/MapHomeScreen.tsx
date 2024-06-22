@@ -1,6 +1,5 @@
 import {
     Pressable,
-    Text,
     View,
     StyleSheet,
 } from 'react-native';
@@ -30,6 +29,9 @@ import {
 } from '@react-navigation/stack';
 import { MapStackParamList } from '@/navigations/stack/MapStackNavigator';
 import useUserLocation from '@/hooks/useUserLocation';
+import usePermission from '@/hooks/usePermission';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 // MapHomeScreen 는 StackNavigation, DrawerNavigation 두개가 혼합된 형식이다.
 // => 이전페이지로 이동할 때는, `DrawerNavigation`
@@ -50,6 +52,8 @@ function MapHomeScreen() {
 
     const inset = useSafeAreaInsets();
     const navigation = useNavigation<Navigation>();
+
+    usePermission('LOCATION');
 
     const {
         userLocation,
@@ -131,9 +135,10 @@ function MapHomeScreen() {
                 { top: inset.top || 20 },
             ]}
             onPress={() => navigation.openDrawer()}>
-            <Text>
-                메뉴
-            </Text>
+            <Ionicons
+                name="menu"
+                color={colors.WHITE}
+                size={25} />
         </Pressable>
 
         <View style={styles.buttonList}>
@@ -151,9 +156,10 @@ function MapHomeScreen() {
                 //     console.groupEnd();
                 // }}
                 onPress={handlePressUserLocation}>
-                <Text>
-                    내 위치
-                </Text>
+                <MaterialIcons
+                    name="my-location"
+                    color={colors.WHITE}
+                    size={25} />
             </Pressable>
         </View>
     </>);
