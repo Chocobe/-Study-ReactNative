@@ -16,6 +16,7 @@ import {
     setHeader,
 } from '@/utils/headers';
 import { 
+    ResponseProfile,
     getAccessToken, 
     getProfile, 
     logout, 
@@ -115,7 +116,7 @@ const useGetRefreshToken = () => {
     };
 };
 
-const useGetProfile = (queryOptions: UseQueryCustomOptions) => {
+const useGetProfile = (queryOptions: UseQueryCustomOptions<ResponseProfile>) => {
     return useQuery({
         queryKey: [queryKey.AUTH, queryKey.GET_PROFILE],
         queryFn: getProfile,
